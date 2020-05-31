@@ -41,7 +41,7 @@ go(function() use ($chan){
             //有料的文件夹
             foreach ($list as $k=>$one)
             {
-                if ($k ==0 || $k == 1)
+                if ($one == '.' || $one == '..')
                 {
                     continue;  //拍黄片专属
                 }

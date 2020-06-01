@@ -2,7 +2,7 @@
 ini_set('memory_limit','1024M');
 
 
-$base_dir = '/usr';
+$base_dir = '/';
 
 $GLOBALS['begin_time'] = getmsectime();  //开女台时间
 $GLOBALS['file_num'] = 0;   //文件数量
@@ -10,7 +10,7 @@ $GLOBALS['empty_dir'] = 0;  //空文件夹数量
 $GLOBALS['runing_mission'] = 0;  //正在执行的任务数量,用来判断结束
 
 
-$chan = new \Swoole\Coroutine\Channel(1000);  //文件夹列表的channel
+$chan = new \Swoole\Coroutine\Channel(1000000);  //文件夹列表的channel
 
 //开始执行
 runmission($base_dir,$chan);
@@ -49,7 +49,7 @@ go(function() use ($chan){
         
 
       //  echo 'runing_mission: '.$GLOBALS['runing_mission'].PHP_EOL;
-       // echo 'file_num:'.$GLOBALS['file_num'] .PHP_EOL;
+      //  echo 'file_num:'.$GLOBALS['file_num'] .PHP_EOL;
         
         
         //判断是否结束
